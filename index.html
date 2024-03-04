@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Background Selector</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #ff0000, #0000ff); /* Default gradient */
+    }
+
+    .color-picker-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    input[type="color"] {
+      width: 50px;
+      height: 50px;
+      border: none;
+    }
+
+    #color1, #color2 {
+      margin-right: 10px;
+    }
+
+    #apply-gradient {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="color-picker-container">
+    <label for="color1">Color 1:</label>
+    <input type="color" id="color1" value="#ff0000">
+
+    <label for="color2">Color 2:</label>
+    <input type="color" id="color2" value="#0000ff">
+  </div>
+
+  <button id="apply-gradient">Apply Gradient</button>
+
+  <script>
+    const color1Input = document.getElementById('color1');
+    const color2Input = document.getElementById('color2');
+    const applyGradientBtn = document.getElementById('apply-gradient');
+
+    applyGradientBtn.addEventListener('click', () => {
+      const color1 = color1Input.value;
+      const color2 = color2Input.value;
+
+      document.body.style.background = `linear-gradient(to right, ${color1}, ${color2})`;
+    });
+  </script>
+</body>
+</html>
